@@ -1,0 +1,54 @@
+# ------------------------------------------------------------------------------
+# Description: 256 color theme for tmux
+#
+# Theme name: Arch rider
+# Version: v1.0
+#
+# Usage: just copy to a .tmux folder and source it with this:
+# source ~/.tmux/arch_rider.thm
+#
+# Author: Tibor Kovacs
+# URL: github.com/feketelovag/tmux-config
+# ------------------------------------------------------------------------------
+
+# 256 color terminal support
+set -g default-terminal "screen-256color"
+
+# update statusbar in every 60 seconds
+set -g status-interval 10
+
+# Base colors ------------------------------------------------------------------
+set -g status-fg white
+set -g status-bg colour234
+set -g pane-border-fg colour245
+set -g pane-active-border-fg colour33
+# ------------------------------------------------------------------------------
+
+# Custom status bar size -------------------------------------------------------
+set -g status-utf8 on
+set -g status-left-length 32
+set -g status-right-length 150
+# ------------------------------------------------------------------------------
+
+# Colorized format of status bar -----------------------------------------------
+# Session name
+set -g status-left '#[fg=colour238,bg=colour234,nobold] S:#[fg=colour254,bg=colour233,nobold] #S #[fg=colour238,bg=colour234,nobold] W:'
+set -g status-right "#[fg=colour244,bg=colour234,nobold]#(grep -s -o -E '\\([0-9.]+ \\){3}' /proc/loadavg)"
+
+# List of inactive window indexes and window names
+set -g window-status-format "#[fg=colour39,bg=colour234,nobold]#I #[fg=colour244,bg=colour234,nobold]#W #[fg=colour239,bg=colour234]-"
+
+# Active window index and name
+set -g window-status-current-format "#[fg=colour234,bg=colour33] #I #[fg=colour39,bg=colour234,nobold] #W #[fg=colour239,bg=colour234]-"
+# ------------------------------------------------------------------------------
+
+# Activity messages ------------------------------------------------------------
+#setw -g monitor-activity on
+#set -g visual-activity on
+set -g message-fg colour39
+set -g message-bg colour232
+#set -g window-status-activity-attr bold
+#set -g window-status-activity-fg colour196
+#set -g window-status-activity-bg colour128
+# ------------------------------------------------------------------------------
+
